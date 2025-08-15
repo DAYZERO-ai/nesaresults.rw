@@ -1,0 +1,107 @@
+
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="img/nesa.jpg">  <title>NESA Examination Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #005baa;
+      color: white;
+      padding: 20px 0;
+    }
+    img {
+      background-image:;
+      max-width: 120px;
+      margin-top: 10px;
+    }
+    main {
+      padding: 40px 20px;
+    }
+    .result-section {
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #a5ff55af>;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+   #indexNumber {
+      background: white;
+      border-radius: 8px;
+      max-width: 220px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    select, input {
+      padding: 10px;
+      width: 240px;
+      margin-bottom: 15px;
+      margin: 10px auto;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin: 10px auto;
+      background: #005baa;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+   <h1>NESA Examination Results </h1>
+    <h2>2024-2025 academic year</h2>
+    <img src="./img/nesaa.jpg" alt="NESA Logo">
+  </header>
+  <main>
+    <div class="result-section">
+      <h2>Check Your Results</h2>
+      <select id="level">
+        <option value="P6">Primary (P6)</option>
+        <option value="S3">O-Level (S3)</option>
+        <option value="A-Level">A-Level (S6)</option>
+      </select>
+      <br/>
+      <input type="text" id="indexNumber" placeholder="Enter your index number" />
+      <br/>
+      <button onclick="checkResults()">Check Results</button>
+      <div id="result"></div>
+    </div>
+  </main>  <script>
+    function checkResults() {
+      const level = document.getElementById("level").value;
+      const index = document.getElementById("indexNumber").value;
+
+      if (!index) {
+        document.getElementById("result").innerText = "Please enter your index number.";
+        return;
+      }
+
+      if (level === "P6") {
+        window.location.href = "https://primary.sdms.gov.rw/public/nationalExaminationResult.zul";
+      } else if (level === "S3") {
+        window.location.href = "https://secondary.sdms.gov.rw/public/nationalExaminationResult.zul";
+      } else {
+        document.getElementById("result").innerText =
+          `Results for A-Level - Index ${index}: PASS`;
+      }
+    }
+  </script>
+  <p>&copy Developed by HIRWA Aimé Thierry</p>
+</body>
+</html>
